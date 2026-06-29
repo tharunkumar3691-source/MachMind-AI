@@ -20,6 +20,7 @@ if (!connectionString) {
 const client = postgres(connectionString || 'postgres://localhost:5432/machmind-ai', {
   ssl: connectionString ? 'require' : false,
   connect_timeout: 10,
+  max: 1,
 });
 
 // Create Drizzle ORM instance with schema for relational queries

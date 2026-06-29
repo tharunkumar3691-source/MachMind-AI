@@ -3,7 +3,7 @@ import { GoogleGenAI } from "@google/genai";
 import { DiagnosticLog, ARCoordinate, VerificationLog, TelemetryData } from "../types";
 
 // Initialize the client with the environment API Key
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || process.env.API_KEY });
 
 // --- MODEL DEFINITIONS ---
 // COMPETITION STRATEGY: Prioritize Gemini 3 Pro for maximum reasoning capability
