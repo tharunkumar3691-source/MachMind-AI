@@ -19,6 +19,33 @@ async function run() {
         permissions: ['camera', 'microphone']
     });
 
+    // Mock the Auth.js session and CSRF token endpoints for Playwright
+    await context.route('**/api/auth/session', async route => {
+        await route.fulfill({
+            status: 200,
+            contentType: 'application/json',
+            body: JSON.stringify({
+                user: {
+                    id: "fbe62156-93d1-483b-bf78-33fe90385c5d",
+                    name: "Tharun kumar",
+                    email: "kumar1268.org@gmail.com",
+                    image: "https://lh3.googleusercontent.com/a/ACg8ocJ5P8GTLZ5-NJYZ1xVqNxTUafLVCqJUqbJH6fOVyDSGj3aM=s96-c"
+                },
+                expires: "2026-07-29T15:42:03.844Z"
+            })
+        });
+    });
+
+    await context.route('**/api/auth/csrf', async route => {
+        await route.fulfill({
+            status: 200,
+            contentType: 'application/json',
+            body: JSON.stringify({
+                csrfToken: "6837e4ace20f53af54b2be1039e328a2df58a9d9b9431933719ad965690ecd89"
+            })
+        });
+    });
+
     const page = await context.newPage();
 
     let consoleErrors: string[] = [];
@@ -43,7 +70,7 @@ async function run() {
         // Measure render latency
         const startNav = Date.now();
         console.log("1. Navigating to Home Page...");
-        await page.goto('http://127.0.0.1:3000', { waitUntil: 'domcontentloaded' });
+        await page.goto('https://machmind-ai.vercel.app', { waitUntil: 'domcontentloaded' });
         const navTime = Date.now() - startNav;
         console.log(`⏱️ Home Render Latency: ${navTime}ms`);
 
@@ -54,7 +81,7 @@ async function run() {
         // 2. Open Dashboard and Click New Scan
         console.log("2. Navigating to Dashboard...");
         const startDash = Date.now();
-        await page.goto('http://127.0.0.1:3000/dashboard', { waitUntil: 'domcontentloaded' });
+        await page.goto('https://machmind-ai.vercel.app/dashboard', { waitUntil: 'domcontentloaded' });
         const dashTime = Date.now() - startDash;
         console.log(`⏱️ Dashboard Render Latency: ${dashTime}ms`);
 
