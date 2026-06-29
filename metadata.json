@@ -1,0 +1,9 @@
+{
+  "name": "Remix: MachMind AI - DEMO - Google DeepMind",
+  "description": "An industrial equipment repair assistant featuring AR guidance, AI diagnostics, and verification systems.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": []
+}

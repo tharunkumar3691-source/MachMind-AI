@@ -1,0 +1,21 @@
+{
+  "name": "MachMind AI",
+  "short_name": "MachMind AI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#0F172A",
+  "description": "AI-powered industrial repair assistant.",
+  "icons": [
+    {
+      "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuCk05lxFE34yotWLVZv3K5oJh2TjzK2uVucwAmsQf7h8iWa415HXaaibA0Dv_jb0vMx9JwUWn_aJ7g2UpZBKTkj0acBM-FrhHR-NUe1oQLC4WjKS2cZkGkTPs1Dpdgz_bSXR_Z03ZFh3CFWXRvKedEVgR_MUoY3ihUg-TB4iYqukjaNNa0qc-6cTzp_MEkmr6XbsMBpKlKBkTDbsZ9nllWe33CopDur0cIpiLtoum6Nutf371Soco6vG8TMMpohJsoHAY5CmV1hAnU",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://lh3.googleusercontent.com/aida-public/AB6AXuCk05lxFE34yotWLVZv3K5oJh2TjzK2uVucwAmsQf7h8iWa415HXaaibA0Dv_jb0vMx9JwUWn_aJ7g2UpZBKTkj0acBM-FrhHR-NUe1oQLC4WjKS2cZkGkTPs1Dpdgz_bSXR_Z03ZFh3CFWXRvKedEVgR_MUoY3ihUg-TB4iYqukjaNNa0qc-6cTzp_MEkmr6XbsMBpKlKBkTDbsZ9nllWe33CopDur0cIpiLtoum6Nutf371Soco6vG8TMMpohJsoHAY5CmV1hAnU",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
