@@ -1,9 +1,3 @@
 {
-  "rewrites": [
-    { "source": "/api/auth/:path*", "destination": "/api/auth" },
-    { "source": "/api/repairs/:path*", "destination": "/api/repairs" },
-    { "source": "/api/manuals/:path*", "destination": "/api/manuals" },
-    { "source": "/api/upload/:path*", "destination": "/api/upload" }
-  ],
   "framework": "vite"
 }
