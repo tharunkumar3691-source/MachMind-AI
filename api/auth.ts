@@ -8,6 +8,6 @@ app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 // Mount the Auth.js router at the expected serverless endpoint
-app.use('/api/auth/*splat', authConfig);
+app.use('/api/auth', authConfig);
 
 export default app;

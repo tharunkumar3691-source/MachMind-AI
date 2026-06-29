@@ -24,3 +24,6 @@ db/migrations
 *.njsproj
 *.sln
 *.sw?
+
+.vercel
+.env*
