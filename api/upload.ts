@@ -4,6 +4,19 @@ import { db } from '../db/client.js';
 import { mediaFiles } from '../db/schema.js';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Restore original req.url from Vercel rewrite
+  const p0 = req.query.p0 as string;
+  if (p0) {
+    try {
+      const urlObj = new URL(req.url || '', `http://${req.headers.host || 'localhost'}`);
+      urlObj.pathname = `/api/upload/${p0}`;
+      urlObj.searchParams.delete('p0');
+      req.url = urlObj.pathname + urlObj.search;
+    } catch (e) {
+      console.error('[Vercel Upload] URL parsing error:', e);
+    }
+  }
+
   try {
     // POST /api/upload — Get presigned upload URL
     if (req.method === 'POST') {

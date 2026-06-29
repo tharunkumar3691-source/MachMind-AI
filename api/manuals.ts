@@ -4,6 +4,19 @@ import { manuals } from '../db/schema.js';
 import { desc } from 'drizzle-orm';
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // Restore original req.url from Vercel rewrite
+  const p0 = req.query.p0 as string;
+  if (p0) {
+    try {
+      const urlObj = new URL(req.url || '', `http://${req.headers.host || 'localhost'}`);
+      urlObj.pathname = `/api/manuals/${p0}`;
+      urlObj.searchParams.delete('p0');
+      req.url = urlObj.pathname + urlObj.search;
+    } catch (e) {
+      console.error('[Vercel Manuals] URL parsing error:', e);
+    }
+  }
+
   try {
     if (req.method === 'GET') {
       const rows = await db.select().from(manuals).orderBy(desc(manuals.createdAt));
