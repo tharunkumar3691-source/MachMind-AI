@@ -7,7 +7,7 @@ const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || process.env.A
 
 // --- MODEL DEFINITIONS ---
 // COMPETITION STRATEGY: Prioritize Gemini 3 Pro for maximum reasoning capability
-const MODEL_REASONING = 'gemini-3-pro-preview'; // Primary Reasoning & Search
+const MODEL_REASONING = 'gemini-2.5-pro'; // Primary Reasoning & Search
 const MODEL_VISION_FAST = 'gemini-2.5-flash';   // Fast AR Vision / Fallback
 const MODEL_EDITING = 'gemini-2.5-flash-image'; 
 
@@ -358,7 +358,8 @@ export async function verifyRepair(
     videoBase64: string, 
     originalDiagnosis: DiagnosticLog | null, 
     language: string = "en",
-    telemetry?: TelemetryData | null
+    telemetry?: TelemetryData | null,
+    mimeType: string = "video/mp4"
 ): Promise<VerificationLog> {
     const targetLanguage = getLanguageName(language);
     
@@ -380,7 +381,7 @@ export async function verifyRepair(
             model: MODEL_REASONING,
             contents: {
                 parts: [
-                    { inlineData: { mimeType: "video/mp4", data: videoBase64 } },
+                    { inlineData: { mimeType: mimeType, data: videoBase64 } },
                     { text: prompt }
                 ]
             },

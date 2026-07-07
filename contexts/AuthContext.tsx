@@ -123,7 +123,7 @@ export function useLocalSession() {
 
   return {
     session: adaptedSession,
-    updateSession: () => {},
+    updateSession: (data?: any) => {},
     resetSession: signOut,
     isAuthenticated,
   };

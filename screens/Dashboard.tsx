@@ -73,9 +73,10 @@ const Dashboard: React.FC<DashboardProps> = ({ navigate, currentScreen, setSelec
     const simulatedTasks = [
       {
         id: 9001,
+        user_id: 'local-user',
         equipment: '⚙️ CNC Spindle Axis G-7',
         title: 'Spindle vibration alignment and acoustic baseline verification',
-        status: 'IN_PROGRESS',
+        status: 'IN_PROGRESS' as const,
         current_step: 3,
         technician_name: 'Marcus Vance',
         created_at: new Date(Date.now() - 3600000 * 2).toISOString(),
@@ -84,9 +85,10 @@ const Dashboard: React.FC<DashboardProps> = ({ navigate, currentScreen, setSelec
       },
       {
         id: 9002,
+        user_id: 'local-user',
         equipment: '🛠️ Hydraulic Piston H-400',
         title: 'Check structural seal integrity and fluid pressure limits',
-        status: 'VERIFICATION_NEEDED',
+        status: 'VERIFICATION_NEEDED' as const,
         current_step: 4,
         technician_name: 'Evelyn Carter',
         created_at: new Date(Date.now() - 3600000 * 18).toISOString(),
@@ -95,9 +97,10 @@ const Dashboard: React.FC<DashboardProps> = ({ navigate, currentScreen, setSelec
       },
       {
         id: 9003,
+        user_id: 'local-user',
         equipment: '🔌 High-Torque Rotor M-90',
         title: 'Multimodal acoustic pattern detection and bearing lubrication',
-        status: 'DIAGNOSED',
+        status: 'DIAGNOSED' as const,
         current_step: 1,
         technician_name: 'David Chen',
         created_at: new Date(Date.now() - 3600000 * 24).toISOString(),
